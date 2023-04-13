@@ -1,0 +1,69 @@
+* {
+    box-sizing: border-box;
+}
+
+body,
+h1 {
+    margin: 0;
+    font-family: Bangers;
+}
+
+main {
+    background-color: rgb(184,19, 19);
+    font-size: 28px;
+    font-weight: 0;
+}
+
+header {
+    background-color: skyblue;
+}
+
+.player-score,
+.computer-score,
+.player-choice,
+.computer-choice {
+    color: white;
+}
+
+h1 {
+    color: rgb(184, 19, 19);        
+    font-size: 120px; 
+    text-align: center;    
+    font-weight: 20;                           
+}
+
+.choice-buttons {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 28px;
+}
+
+button {
+    background-color: skyblue;
+    border: none;
+    padding: 0px 20px;
+    width: 150px;
+    border-radius: 12px;
+    height: 40px;
+    font-family: Bangers;
+    font-size: 16px;
+}
+
+div {
+    padding: 4px;
+}
+
+
+
+.computer {
+    padding-bottom: 20px;
+}
+
+.round-result { 
+    color: white;
+}
+
+.final-result {
+    padding-top: 20px;
+    font-size: 60px;
+}

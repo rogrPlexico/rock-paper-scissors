@@ -56,49 +56,58 @@ function playRound(e) {
     if (playerSelection == "duck" && computerSelection == "duck") {
         playerChoiceEl.textContent = "Duck";
         computerChoiceEl.textContent = "Duck";
-        resultTextEl.textContent = `Ducks are extreme pack animals who are completely biased toward their own kind. Rarely will they fight one another. THIS ROUND IS A DRAW`;
+        resultTextEl.textContent = `Ducks are extreme pack animals and stick to their own. Rarely will they fight one another`
+        roundResultEl.textContent = "THIS ROUND IS A DRAW";
         winner = 'tie';
     } else if (playerSelection == "apple" && computerSelection == "apple") {
         playerChoiceEl.textContent = "Apple";
         computerChoiceEl.textContent = "Apple";
-        resultTextEl.textContent = `Two apples hurtle toward eachother at breakneck speed. Two deafening booms rattle the earth as each apple breaks the sound barrier, and a roaring CRUNCH is heard as they crash into one another and instantly vaporize into a fine mist. THIS ROUND IS A DRAW`;
+        resultTextEl.textContent = `Two apples hurtle toward eachother at breakneck speed. Two deafening booms rattle the earth as each apple breaks the sound barrier, and a roaring CRUNCH is heard as they crash into one another and instantly vaporize into a fine mist`;
+        roundResultEl.textContent = "THIS ROUND IS A DRAW";
         winner = 'tie';
     } else if (playerSelection == "ninja" && computerSelection == "ninja") {
         playerChoiceEl.textContent = "Ninja";
         computerChoiceEl.textContent = "Ninja";
         resultTextEl.textContent = `Two ninjas fight to the death in a forest. We have no way of knowing who wins. THIS ROUND IS A DRAW`;
+        roundResultEl.textContent = "THIS ROUND IS A DRAW";
         winner = 'tie';
         // PLAYER WIN outcomes:
     } else if (playerSelection == "duck" && computerSelection == "ninja" ) {
         playerChoiceEl.textContent = "Duck";
         computerChoiceEl.textContent = "Ninja";
-        resultTextEl.textContent = `Duck walks. Duck swims. Duck flies. Ninja can only run for his life. YOU WIN THIS ROUND`;
+        resultTextEl.textContent = `Duck walks. Duck swims. Duck flies. Ninja can only run for his life`;
+        roundResultEl.textContent = "YOU WIN THIS ROUND";
         winner = 'player';
     } else if (playerSelection == "apple" && computerSelection == "duck" ) {
         playerChoiceEl.textContent = "Apple";
         computerChoiceEl.textContent = "Duck";
-        resultTextEl.textContent = `Wow your aim is good! Knocked that bird right outta the sky with that thing. YOU WIN THIS ROUND`;
+        resultTextEl.textContent = `Wow your aim is good! Knocked that bird right outta the sky with that thing`;
+        roundResultEl.textContent = "YOU WIN THIS ROUND";
         winner = 'player';
     } else if (playerSelection == "ninja" && computerSelection == "apple" ) {
         playerChoiceEl.textContent = "Ninja";
         computerChoiceEl.textContent = "Apple";
         resultTextEl.textContent = `The Ninja mercenary you hired on the dark web nonchalantly takes a bite out of enemy apple. You're paying this guy 40 bucks an hour? Guess it was worth it. YOU WIN THIS ROUND`;
+        roundResultEl.textContent = "YOU WIN THIS ROUND";
         winner = 'player';
         // COMPUTER WIN outcomes:
     } else if (playerSelection == "apple" && computerSelection == "ninja" ) {
         playerChoiceEl.textContent = "Apple";
         computerChoiceEl.textContent = "Ninja";
-        resultTextEl.textContent = `You chose an inanimate object. Ninja picks up apple and throws it in the trash or feeds it to a goat or something. Of course, YOU LOSE THIS ROUND`;
+        resultTextEl.textContent = `You chose an inanimate object. Ninja picks up apple and throws it in the trash or feeds it to a goat or something. Of course`;
+        roundResultEl.textContent = "YOU LOSE THIS ROUND";
         winner = 'computer';
     } else if (playerSelection == "ninja" && computerSelection == "duck" ) {
         playerChoiceEl.textContent = "Ninja";
         computerChoiceEl.textContent = "Duck";
-        resultTextEl.textContent = `The sound of fevered squacking is all that can be heard as ninja's motionless body continues to be pecked. YOU LOSE THIS ROUND`;
+        resultTextEl.textContent = `The sound of fevered squacking is all that can be heard as ninja's motionless body continues to be pecked`;
+        roundResultEl.textContent = "YOU LOSE THIS ROUND";
         winner = 'computer';
     } else if (playerSelection == "duck" && computerSelection == "apple" ) {
         playerChoiceEl.textContent = "Duck";
         computerChoiceEl.textContent = "Apple";
-        resultTextEl.textContent = `Apple comes hurtling out of the sky toward your duck and explodes his head. YOU LOSE THIS ROUND`;
+        resultTextEl.textContent = `Apple comes hurtling out of the sky at your duck and explodes his head`;
+        roundResultEl.textContent = "YOU LOSE THIS ROUND";
         winner = 'computer';
     } else {
         console.error('error evaluating winner');
@@ -115,10 +124,10 @@ function playRound(e) {
     
     // check for end-of-game
     if (playerScore == 5) {
-        finalResultEl.textContent = "AND YOU WON THE GAME!!!!!!!!!!!!!!!!!!!!!!!!!!";
+        finalResultEl.textContent = "YOU WON THE GAME!!!!!!!!!!!!!!!!!!!!!!!!!!";
         buttons.forEach(button => button.removeEventListener('click', playRound));
     } else if (computerScore == 5) {
-        finalResultEl.textContent = "and Duckgarnit YOU LOST THE GAME!!!";
+        finalResultEl.textContent = "Duckgarnit YOU LOST THE GAME!!!";
         buttons.forEach(button => button.removeEventListener('click', playRound));
     } else if (playerScore == 6 && computerScore == 6) {
         finalResultEl.textContent = "EVERYONE GETS A TROPHY. NO LOSERS THIS GAME!!!!";
@@ -129,7 +138,12 @@ function newGame(e) {
     playerScore = 0;
     computerScore = 0;
     playerScoreEl.textContent = `${playerScore}`;
-    computerScoreEl.textContent = `${computerScore}`;        
+    computerScoreEl.textContent = `${computerScore}`;
+    finalResultEl.textContent = "";
+    resultTextEl.textContent = "";
+    computerChoiceEl.textContent = "";
+    playerChoiceEl.textContent = "";
+    roundResultEl.textContent = "";
 
     buttons.forEach(button => button.addEventListener('click', playRound));
 }
@@ -142,8 +156,9 @@ const playerChoiceEl = document.querySelector('.player-choice');
 const computerChoiceEl = document.querySelector('.computer-choice');
 const resultTextEl = document.querySelector('.result');
 const playerScoreEl = document.querySelector('.player-score');
-const computerScoreEl = document.querySelector('.computer-score')
-const finalResultEl = document.querySelector('.final-result')
+const computerScoreEl = document.querySelector('.computer-score');
+const roundResultEl = document.querySelector('.round-result');
+const finalResultEl = document.querySelector('.final-result');
 
 
 
